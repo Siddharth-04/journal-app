@@ -38,7 +38,7 @@ public class JwtUtils {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    private String extractUsername(String token){
+    public String extractUsername(String token){
         return extractAllClaims(token).getSubject();
     }
 
@@ -61,11 +61,4 @@ public class JwtUtils {
     private boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
-
-//    @Bean
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception{
-//        return super().authenticationManagerBean();
-//    }
-
 }

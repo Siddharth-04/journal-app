@@ -42,6 +42,7 @@ public class JournalEntryControllerV2 {
         String userName = authentication.getName();
         User user = userService.findByUserName(userName);
         List<JournalEntry> all = user.getArr(); //jorunalEntries ka naam arr hai
+
         if(all != null && !all.isEmpty()){
             return new ResponseEntity<>(all,HttpStatus.OK);
         }
